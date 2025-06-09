@@ -33,41 +33,28 @@
       
 
     <div class="content">
-      <main>
+        <main>
         
         <div id="gallery-container">
+            <script src="gallery-loader.js"></script>
             <script>
-              fetch('analogue.json')
-                .then(res => res.json())
-                .then(images => {
-                  const container = document.getElementById('gallery-container');
-          
-                  // Lag <section class="gallery">
-                  const section = document.createElement('section');
-                  section.className = 'gallery';
-          
-                  // For hvert bilde, lag <div class="gallery-item"> med <img>
-                  images.forEach(src => {
-                    const div = document.createElement('div');
-                    div.className = 'gallery-item';
-          
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = 'Bilde';
-          
-                    div.appendChild(img);
-                    section.appendChild(div);
-                  });
-          
-                  container.innerHTML = '';
-                  container.appendChild(section);
-                })
-                .catch(err => console.error('Kunne ikke laste bilder:', err));
+              loadGallery('images.json'); // her kan du sette hvilken JSON-fil du vil bruke
             </script>
           </div>
 
-      </main>
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox hidden">
+            <span class="close" id="closeBtn">&times;</span>
+            <img id="lightboxImage" src="" alt="Stort bilde">
+            <div class="lightbox-nav">
+              <span id="prevBtn">&#10094;</span>
+              <span id="nextBtn">&#10095;</span>
+            </div>
+          </div>
+    </div>
+        </main>
     </div>
   </div>
+  <script src="lightbox.js"></script>
 </body>
 </html>

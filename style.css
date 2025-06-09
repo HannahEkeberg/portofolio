@@ -6,7 +6,7 @@
   
   body {
     font-family: 'EB Garamond', serif;
-    background-color: #ffffff;
+    background-color: #E3DDCD;
     color: #000000;
     height: 100vh;
     display: flex;
@@ -67,7 +67,7 @@
   }
   
   .content {
-    width: 70%;
+    width: 100%;
     padding: 2rem;
     overflow-y: auto;
     display: flex;
@@ -128,3 +128,52 @@
   display: block;
 }
 
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  flex-direction: column;
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 4px;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 3rem;
+  padding: 0 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.content.blurred {
+  display: none;
+}
