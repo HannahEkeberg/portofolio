@@ -1,12 +1,22 @@
 import os
 import json
 
-folder = 'Photos'
-files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
+def generateJson(folder, jsonFilename):
+    files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
+    jsonFilename = jsonFilename + '.json'
+    paths = [f"{folder}/{file}" for file in sorted(files)]
+    with open(jsonFilename, 'w') as f:
+            json.dump(paths, f, indent=2)
 
-paths = [f"{folder}/{file}" for file in sorted(files)]
+    print(jsonFilename + ' generated.')
+generateJson('Photos/Personal/', 'analogue')
 
-with open('images.json', 'w') as f:
-    json.dump(paths, f, indent=2)
+    # folder = 'Photos'
+    # files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
 
-print('images.json generated.')
+    # paths = [f"{folder}/{file}" for file in sorted(files)]
+
+    # with open('images.json', 'w') as f:
+    #     json.dump(paths, f, indent=2)
+
+    # print('images.json generated.')
