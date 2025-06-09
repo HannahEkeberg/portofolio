@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minimal Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
-    <div class="left-column">
-      <header>
-        <h1>Hannah Lovise</h1>
-        <p>Fotograf</p>
-      </header>
-    </div>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>HANNAH LOVISE</h2>
+          <!-- <p>Photography</p> -->
+        </div>
+        
+        <script>
+            fetch('sidebar.html')
+              .then(response => response.text())
+              .then(html => {
+                document.getElementById('sidebar').innerHTML = html;
+              });
+          </script>
 
-    <div class="right-column">
+        <!-- <nav class="sidebar-nav">
+          <ul>
+            <li><a href="personal.html">Personal</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html">Shop</a></li>
+          </ul>
+        </nav>
+      
+        <div class="sidebar-footer">
+          <p>© 2025 Hannah Lovise</p>
+        </div>
+      </aside> -->
+      
+
+    <div class="content">
       <main>
         <p>Her kan du skrive litt om deg selv, hva du jobber med, linker til prosjekter, eller hva du ønsker.</p>
       </main>
