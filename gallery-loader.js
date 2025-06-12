@@ -25,6 +25,10 @@ function loadGallery(jsonFile) {
   
         container.innerHTML = '';
         container.appendChild(section);
+  
+        // 👇 eneste nødvendige endring:
+        window.scrollTo(0, 0);
       })
       .catch(err => console.error('Kunne ikke laste bilder:', err));
   }
+  
