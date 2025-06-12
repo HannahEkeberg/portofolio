@@ -42,24 +42,47 @@
   .sidebar-nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
   
-  .sidebar-nav ul li {
+  /* Gjør både <a> og .dropdown-btn lik i stil */
+  .sidebar-nav ul li a,
+  .sidebar-nav ul li .dropdown-btn {
+    display: block;
     margin-bottom: 0.8rem;
-  }
-  
-  .sidebar-nav ul li a {
     text-decoration: none;
     color: #666;
     font-size: 0.95rem;
     transition: color 0.3s;
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
   }
   
-  .sidebar-nav ul li a:hover {
+  /* Hover-effekt for begge */
+  .sidebar-nav ul li a:hover,
+  .sidebar-nav ul li .dropdown-btn:hover {
     color: #999;
   }
   
-  /* Dropdown-meny i sidebar */
+  /* Dropdown-innhold */
+  .dropdown-content {
+    display: none;
+    padding-left: 1rem;
+  }
+  
+  .dropdown-content a {
+    font-size: 0.9rem;
+  }
+  
+  .dropdown-content.show {
+    display: block;
+  }
+  
+  /* Dropdown-meny i sidebar
   .sidebar-nav ul {
     list-style-type: none;
     padding: 0;
@@ -114,7 +137,43 @@
   .dropdown-content a {
     padding: 8px 16px;
     display: block;
+  } */
+/* 
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
   }
+
+  .sidebar-nav li {
+    margin-bottom: 5px;
+  }
+
+  .sidebar-nav a,
+  .dropdown-btn {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .dropdown-content {
+    display: none;
+    padding-left: 20px;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+  }
+
+ */
+
   .sidebar-footer {
     margin-top: auto;
     font-size: 0.8rem;
@@ -234,3 +293,43 @@
 .content.hidden {
   display: none;
 }
+
+/* .sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 4px;
+}
+
+.sidebar-nav a,
+.sidebar-nav .dropdown-btn {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: black;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav .dropdown-btn:hover {
+  background-color: #f2f2f2;
+}
+
+/* Skjuler disse som standard */
+.sidebar-nav .dropdown-content {
+  display: none;
+  padding-left: 20px;
+}
+
+/* Styling for undermenylenker */
+.sidebar-nav .dropdown-content a {
+  padding: 8px 16px;
+} */
