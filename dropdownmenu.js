@@ -20,13 +20,11 @@ fetch('sidebar.html')
       const dropdown = document.querySelector('.dropdown-content');
       if (dropdown) dropdown.classList.add('show');
     }
-
-    // HAMBURGER: åpne/lukke menyen
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const sidebar = document.querySelector('.sidebar');
-    if (hamburgerBtn && sidebar) {
-      hamburgerBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('show');
-      });
-    }
   });
+
+
+  function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('show');
+  }
+  
