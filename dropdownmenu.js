@@ -3,25 +3,30 @@ fetch('sidebar.html')
   .then(html => {
     document.getElementById('sidebar-nav').innerHTML = html;
 
-    // Når sidebar er ferdig lastet, legg til event listeners på dropdown-knappene
+    // DROPDOWN-knapper
     document.querySelectorAll(".dropdown-btn").forEach(button => {
       button.addEventListener("click", function () {
         const dropdown = this.nextElementSibling;
-        dropdown.classList.toggle("show");
+        if (dropdown && dropdown.classList.contains("dropdown-content")) {
+          dropdown.classList.toggle("show");
+        }
       });
     });
 
-    // Hent filnavnet (eks: personal.html)
+    // Automatisk visning av dropdown ved bestemte sider
     const currentPage = window.location.pathname.split("/").pop();
-
-    // Sider som skal automatisk åpne dropdown
     const personalPages = ["personal.html", "california.html"];
-
-    // Hvis vi er på en av disse sidene, åpne dropdownen
     if (personalPages.includes(currentPage)) {
       const dropdown = document.querySelector('.dropdown-content');
-      if (dropdown) {
-        dropdown.classList.add('show');
-      }
+      if (dropdown) dropdown.classList.add('show');
+    }
+
+    // HAMBURGER: åpne/lukke menyen
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sidebar = document.querySelector('.sidebar');
+    if (hamburgerBtn && sidebar) {
+      hamburgerBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('show');
+      });
     }
   });
