@@ -22,9 +22,8 @@ fetch('sidebar.html')
     }
   });
 
-
   function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('show');
+    document.querySelector('.sidebar').classList.toggle('open');
   }
+
   

@@ -15,24 +15,18 @@ html, body {
   width: 100%;
 }
 
-/* === Sidebar === */
-.sidebar {
-  width: 280px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  gap: 2rem;
-  background-color: #e6dece;
+.main-header {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
-  overflow: hidden;
-  z-index: 10;
+  width: 100%;
+  background-color: #e6dece;
+  padding: 1rem 2rem;
+  /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+  z-index: 1000;
 }
 
-.sidebar-header h2 {
+.main-header h1 {
   font-size: 0.8rem;
   margin-bottom: 0.3rem;
   color: white;
@@ -40,204 +34,16 @@ html, body {
   letter-spacing: 0.3em;
 }
 
-.sidebar-header p {
-  font-size: 1rem;
-  color: #555;
+/* Skyv innhold ned på mobil slik at headeren ikke overlapper */
+body {
+  padding-top: 80px; /* juster etter headerens høyde */
 }
 
-.sidebar-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-nav ul li a,
-.sidebar-nav ul li .dropdown-btn {
-  display: block;
-  margin-bottom: 0.8rem;
-  text-decoration: none;
-  color: #666;
-  font-size: 0.95rem;
-  transition: color 0.3s;
-  background: none;
-  border: none;
-  font-family: inherit;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-}
-
-.sidebar-nav ul li a:hover,
-.sidebar-nav ul li .dropdown-btn:hover {
-  color: #999;
-}
-
-.dropdown-content {
-  display: none;
-  margin-top: 0.3rem;
-  padding-left: 0.5rem;
-}
-
-.dropdown-content.show {
-  display: block;
-}
-
-.dropdown-content a {
-  padding-left: 10px;
-  font-size: 0.13rem;
-}
-
-.sidebar-footer {
-  margin-top: auto;
-  font-size: 0.8rem;
-  color: #aaa;
-  text-align: left;
-  align-self: flex-start;
-  padding-left: 0.5rem;
-  width: 100%;
-}
-
-/* === Innhold === */
-.content {
-  margin-left: 280px;
-  flex: 1;
-  overflow-y: auto;
-  height: 100vh;
-  padding: 2rem;
-  display: flex;
-  align-items: flex-start;
-}
-
-.content main p {
-  font-size: 10px;
-  color: #626262;
-  font-weight: 200;
-  line-height: 1.5;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.content > main > img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 1.5rem;
-  object-fit: cover;
-  max-height: 60vh;
-}
-
-/* === Galleri === */
-.gallery {
-  column-count: 3;
-  column-gap: 1.5rem;
-  max-width: 1600px;
-  margin: 4rem auto;
-  padding: 0 1rem;
-}
-
-.gallery-item {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1.5rem;
-  break-inside: avoid;
-  box-shadow: none;
-  border-radius: 0;
-  transition: none;
-  cursor: default;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  transition: none;
-}
-
-.gallery-item:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-/* === Responsiv galleri === */
-@media (max-width: 1024px) {
-  .gallery {
-    column-count: 2;
+/* Du kan også gjemme sidebaren på mobil og kun vise header */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
   }
-}
-
-@media (max-width: 600px) {
-  .gallery {
-    column-count: 1;
-  }
-}
-
-/* === Lightbox === */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #e6dece;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  flex-direction: column;
-}
-
-.lightbox.hidden {
-  display: none;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80vh;
-  border-radius: 4px;
-}
-
-.lightbox .close {
-  position: absolute;
-  top: 2rem;
-  right: 3rem;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.lightbox-nav {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  color: white;
-  font-size: 3rem;
-  padding: 0 2rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.content.hidden {
-  display: none;
-}
-
-/* === Grunnoppsett === */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'EB Garamond', serif;
-  background-color: #e6dece;
-  color: #000000;
-}
-
-/* === Hovedlayout === */
-.container {
-  display: flex;
-  height: 100vh;
-  width: 100%;
 }
 
 /* === Sidebar === */
@@ -384,10 +190,53 @@ html, body {
   transition: opacity 0.3s ease;
 }
 
-/* === Responsiv galleri === */
+/* === Responsiv galleri og meny === */
 @media (max-width: 1024px) {
   .gallery {
     column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    /* display: none; */
+    background: none;
+    border: none;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.15em;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    transform: none !important;
+    top: 0;
+    left: 0;
+    height: auto;
+    overflow: visible;
+    display: none;
+  }
+
+  .sidebar.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .gallery {
+    column-count: 1 !important;
+    column-gap: 0;
+    margin-top: 2rem;
   }
 }
 
