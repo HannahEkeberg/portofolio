@@ -228,12 +228,13 @@
   .sidebar {
     width: 100%;
     padding: 1rem;
-    display: none; /* skjules som standard */
+    display: none;
     background-color: #e6dece;
   }
 
   .sidebar.show {
     display: flex;
+    flex-direction: column;
   }
 
   .hamburger {
@@ -243,11 +244,7 @@
     font-size: 2rem;
     margin: 1rem;
     cursor: pointer;
-  }
-
-  .sidebar-nav ul {
-    flex-direction: column;
-    align-items: flex-start;
+    z-index: 1000;
   }
 
   .content {
@@ -259,9 +256,12 @@
   }
 }
 
-/* Desktop: vis sidebar, skjul hamburger */
 @media (min-width: 769px) {
   .hamburger {
     display: none;
+  }
+
+  .sidebar {
+    display: flex;
   }
 }
