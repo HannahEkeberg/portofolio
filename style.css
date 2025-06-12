@@ -1,218 +1,183 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'EB Garamond', serif;
-    background-color: #e6dece;
-    color: #000000;
-    /* height: 100vh; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* === Grunnoppsett === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'EB Garamond', serif;
+  background-color: #e6dece;
+  color: #000000;
+}
 
-  .content main p {
-    font-size: 10px; /* juster som ønsket, f.eks. 1.2rem eller 14px */
-    color: #626262;     /* erstatt med ønsket farge, f.eks. #555 eller white */
-    font-weight: 200;
-    line-height: 1.5;
-    text-align: center; /* hvis du vil ha teksten sentrert */
-    margin-top: 2rem;   /* valgfritt for litt luft over */
-  }
+/* === Hovedlayout === */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
 
-  .content > main > img {
-    width: 100%;              /* fyller bredden på <main> */
-    height: auto;             /* bevarer proporsjoner */
-    display: block;           /* fjerner ekstra linjehøyde */
-    margin-bottom: 1.5rem;    /* litt luft til teksten under */
-    object-fit: cover;        /* fyller området uten å forvrenge */
-    max-height: 60vh;         /* unngå at det «strekker» for høyt */
-  }
+/* === Sidebar === */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: #e6dece;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 10;
+}
 
-  .container {
-    display: flex;
-    width: 90%;
-    max-width: 1200px;
-    /* height: 90vh; */
-  }
-  
-  .sidebar {
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    gap: 2rem;
-  }
-  
-  .sidebar-header h2 {
-    font-size: 0.8rem;
-    margin-bottom: 0.3rem;
-    color: white; /* hvit tekst */
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 0.3em; /* øker avstanden mellom bokstavene */
-  }
-  
-  .sidebar-header p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Gjør både <a> og .dropdown-btn lik i stil */
-  .sidebar-nav ul li a,
-  .sidebar-nav ul li .dropdown-btn {
-    display: block;
-    margin-bottom: 0.8rem;
-    text-decoration: none;
-    color: #666;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-    background: none;
-    border: none;
-    font-family: inherit;
-    cursor: pointer;
-    text-align: left;
-    padding: 0;
-  }
-  
-  /* Hover-effekt for begge */
-  .sidebar-nav ul li a:hover,
-  .sidebar-nav ul li .dropdown-btn:hover {
-    color: #999;
-  }
-  
-  /* Dropdown-innhold */
-    /* Skjul som standard */
-  /* .dropdown-content {
-    display: none;
-    /* position: absolute; viktig hvis den allerede er det */
-    /* left: 180px; skyver innholdet 10px mot høyre */
-    /* padding: 2rem; */
-/* } */
+.sidebar-header h2 {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.3em;
+}
 
-  .dropdown-content {
-    display: none;
-    margin-top: 0.3rem;
-    padding-left: 0.5rem;
-    /* border-left: 1px solid #ccc; */
-  }
+.sidebar-header p {
+  font-size: 1rem;
+  color: #555;
+}
 
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  /* Vis når "show" er lagt til */
-  .dropdown-content.show {
-    display: block;
-  }
-  
-  .dropdown-content a {
-    padding-left: 10px; /* eller margin-left: 10px; */
-    font-size: 0.13rem;
-  }  
+.sidebar-nav ul li a,
+.sidebar-nav ul li .dropdown-btn {
+  display: block;
+  margin-bottom: 0.8rem;
+  text-decoration: none;
+  color: #666;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
 
-  .sidebar-footer {
-    margin-top: auto;
-    font-size: 0.8rem;
-    color: #aaa;
-    /* text-align: center; */
-    text-align: left;        /* flytt teksten til venstre */
-    align-self: flex-start;  /* sikre at den ligger helt til venstre i flex-containeren */
-    /* valgfritt: litt innrykk fra kanten */
-    padding-left: 0.5rem;    
-    width: 100%;  
-  }
-  
-  /* .content {
-    width: 100%;
-    padding: 2rem;
-    overflow-y: auto;
-    display: flex;
-    align-items: center;
-  } */
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li .dropdown-btn:hover {
+  color: #999;
+}
 
-  .content {
-    width: 100%;
-    padding: 2rem;
-    overflow-y: auto;
-    display: flex;
-    align-items: flex-start; /* 👈 Endret fra 'center' til 'flex-start' */
-  }
-  
-  main p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
+.dropdown-content {
+  display: none;
+  margin-top: 0.3rem;
+  padding-left: 0.5rem;
+}
 
-  .gallery {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px; */
-    column-count: 3; /* antall kolonner */
-    column-gap: 1rem; /* mellomrom mellom kolonnene */
-    margin-top: 3rem; /* 👈 Flytter galleriet nedover */
-  }
+.dropdown-content.show {
+  display: block;
+}
 
-  .gallery-item {
-    overflow: hidden;
-    border-radius: 0px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
+.dropdown-content a {
+  padding-left: 10px;
+  font-size: 0.13rem;
+}
 
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: #aaa;
+  text-align: left;
+  align-self: flex-start;
+  padding-left: 0.5rem;
+  width: 100%;
+}
 
-  .gallery-item:hover img {
-    transform: scale(1.04);
-  }
+/* === Innhold === */
+.content {
+  margin-left: 280px;
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+}
 
-  .gallery-item:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  }
+.content main p {
+  font-size: 10px;
+  color: #626262;
+  font-weight: 200;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 2rem;
+}
 
-  .gallery {
-  column-count: 3; /* antall kolonner */
-  column-gap: 1rem; /* mellomrom mellom kolonnene */
+.content > main > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+  max-height: 60vh;
+}
+
+/* === Galleri === */
+.gallery {
+  column-count: 3;
+  column-gap: 1.5rem;
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 1rem;
 }
 
 .gallery-item {
   display: inline-block;
-  margin-bottom: 1rem;
-  width: 100%; /* bredden må tilpasses kolonnen */
+  width: 100%;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+  box-shadow: none;
+  border-radius: 0;
+  transition: none;
+  cursor: default;
 }
 
 .gallery-item img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
+  transition: none;
 }
 
-@media (max-width: 768px) {
+.gallery-item:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* === Responsiv galleri === */
+@media (max-width: 1024px) {
   .gallery {
-    column-count: 1;
-    margin-top: 2rem; /* Mindre luft på mobil */
+    column-count: 2;
   }
 }
 
+@media (max-width: 600px) {
+  .gallery {
+    column-count: 1;
+  }
+}
+
+/* === Lightbox === */
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: transparent; */
   background: #e6dece;
   display: flex;
   justify-content: center;
@@ -255,52 +220,4 @@
 
 .content.hidden {
   display: none;
-}
-
-/* Mobil: skjul sidebar og vis hamburger */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .sidebar {
-    width: 100%;
-    padding: 1rem;
-    display: none;
-    background-color: #e6dece;
-  }
-
-  .sidebar.show {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hamburger {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    margin: 1rem;
-    cursor: pointer;
-    z-index: 1000;
-  }
-
-  .content {
-    padding: 1rem;
-  }
-
-  .gallery {
-    column-count: 1;
-  }
-}
-
-@media (min-width: 769px) {
-  .hamburger {
-    display: none;
-  }
-
-  .sidebar {
-    display: flex;
-  }
 }
