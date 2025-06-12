@@ -120,7 +120,12 @@
     margin-top: auto;
     font-size: 0.8rem;
     color: #aaa;
-    text-align: center;
+    /* text-align: center; */
+    text-align: left;        /* flytt teksten til venstre */
+    align-self: flex-start;  /* sikre at den ligger helt til venstre i flex-containeren */
+    /* valgfritt: litt innrykk fra kanten */
+    padding-left: 0.5rem;    
+    width: 100%;  
   }
   
   /* .content {
