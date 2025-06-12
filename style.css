@@ -23,6 +23,15 @@
     margin-top: 2rem;   /* valgfritt for litt luft over */
   }
 
+  .content > main > img {
+    width: 100%;              /* fyller bredden på <main> */
+    height: auto;             /* bevarer proporsjoner */
+    display: block;           /* fjerner ekstra linjehøyde */
+    margin-bottom: 1.5rem;    /* litt luft til teksten under */
+    object-fit: cover;        /* fyller området uten å forvrenge */
+    max-height: 60vh;         /* unngå at det «strekker» for høyt */
+  }
+
   .container {
     display: flex;
     width: 90%;
