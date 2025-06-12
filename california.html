@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minimal Portfolio</title>
@@ -16,7 +15,6 @@
           <h2>HANNAH LOVISE</h2>
           <!-- <p>Photography</p> -->
         </div>
-        
         <div id="sidebar-nav">
           <script>
               fetch('sidebar.html')
@@ -39,7 +37,7 @@
         <div id="gallery-container">
             <script src="gallery-loader.js"></script>
             <script>
-              loadGallery('analogue.json'); // her kan du sette hvilken JSON-fil du vil bruke
+              loadGallery('california_analogue.json'); // her kan du sette hvilken JSON-fil du vil bruke
             </script>
           </div>
         </main>
@@ -57,17 +55,5 @@
   </div>
   <script src="lightbox.js"></script>
   <script src="dropdownmenu.js"></script>
-  <script>
-    // Hent filnavnet (eks: personal.html)
-    const currentPage = window.location.pathname.split("/").pop();
-  
-    // Sider som skal åpne dropdown
-    const personalPages = ["personal.html", "california.html"];
-  
-    // Hvis vi er på en av disse sidene
-    if (personalPages.includes(currentPage)) {
-      document.querySelector('.dropdown-content').classList.add('show');
-    }
-  </script>
 </body>
 </html>
