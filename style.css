@@ -43,7 +43,7 @@ body {
 
 /* === Sidebar === */
 .sidebar {
-  width: 260px;
+  width: 250px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@ body {
   top: 3cm;                     /* Flyttet ned 3cm */
   left: 0;
   bottom: 0;
-  height: calc(100% - 3cm); /*    Justert høyde */
+  height: calc(100% - 3cm);     /* Justert høyde */
   overflow: hidden;
   z-index: 10;
 }
@@ -126,7 +126,7 @@ body {
 
 /* === Innhold === */
 .content {
-  margin-left: 280px;          /* Skyver innhold til høyre for sidebar */
+  margin-left: 270px;          /* Skyver innhold til høyre for sidebar */
   padding: 3cm 2rem 2rem 2rem; /* Padding top matcher sidebar-top */
   flex: 1;
   overflow-y: auto;
@@ -231,15 +231,10 @@ body {
     flex-direction: column;
   }
 
-  /* .content {
+  .content {
     margin-left: 0;
     padding: 1rem;
     height: auto;
-  } */
-
-  .content {
-    margin-left: 280px; /* Samme bredde som sidebar*/
-    padding-top: 80px;  /* Samme høyde som header   */
   }
 
   .gallery {
