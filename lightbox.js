@@ -11,29 +11,29 @@ function openLightbox(index, images) {
   lightboxImage.src = imageList[currentIndex];
   lightbox.classList.remove('hidden');
 
-// Lukkeknapp
-document.getElementById('closeBtn').addEventListener('click', () => {
-  document.getElementById('lightbox').classList.add('hidden');
+  // Lukkeknapp
+  document.getElementById('closeBtn').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.add('hidden');
+    const content = document.querySelector('.content');
+    if (content) content.classList.remove('hidden');
+  });
 
-  const content = document.querySelector('.content');
-  if (content) content.classList.remove('hidden');
-});
+  // Forrige bilde
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      document.getElementById('lightboxImage').src = imageList[currentIndex];
+    }
+  });
 
-// Forrige bilde
-document.getElementById('prevBtn').addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    document.getElementById('lightboxImage').src = imageList[currentIndex];
-  }
-});
-
-// Neste bilde
-document.getElementById('nextBtn').addEventListener('click', () => {
-  if (currentIndex < imageList.length - 1) {
-    currentIndex++;
-    document.getElementById('lightboxImage').src = imageList[currentIndex];
-  }
-});
+  // Neste bilde
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    if (currentIndex < imageList.length - 1) {
+      currentIndex++;
+      document.getElementById('lightboxImage').src = imageList[currentIndex];
+    }
+  });
+} 
 
 // Støtte for piltaster
 document.addEventListener('keydown', (e) => {

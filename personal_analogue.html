@@ -42,7 +42,7 @@
         <div id="gallery-container">
             <script src="gallery-loader.js"></script>
             <script>
-              loadGallery('Photos/JsonGalleries/analogue.json'); // her kan du sette hvilken JSON-fil du vil bruke
+            //   loadGallery('Photos/JsonGalleries/analogue.json'); // her kan du sette hvilken JSON-fil du vil bruke
             </script>
           </div>
           <p>Analogue work from 2024-2025, shot on 35 mm film. From Oslo, Japan, California and Doha.</p>
@@ -60,7 +60,12 @@
     </div>
   </div>
 
-  <script src="lightbox.js"></script>
-  <script src="dropdownmenu.js"></script>
+    <!-- Riktig rekkefølge på slutten av <body> -->
+    <script src="lightbox.js"></script>
+    <script src="dropdownmenu.js"></script>
+    <script src="gallery-loader.js"></script>
+    <script>
+    loadGallery('Photos/JsonGalleries/analogue.json');
+</script>
 </body>
 </html>
