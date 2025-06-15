@@ -11,11 +11,6 @@ function openLightbox(index, images) {
   lightboxImage.src = imageList[currentIndex];
   lightbox.classList.remove('hidden');
 
-//   // 👇 Skjul .content her, IKKE utenfor funksjonen
-//   const content = document.querySelector('.content');
-//   if (content) content.classList.add('hidden');
-}
-
 // Lukkeknapp
 document.getElementById('closeBtn').addEventListener('click', () => {
   document.getElementById('lightbox').classList.add('hidden');

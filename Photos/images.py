@@ -20,4 +20,6 @@ def generateJson(picturefolder, jsonFilename, jsonFolder=None):
 # generateJson('Photos/Personal/', 'analogue')
 # generateJson('Photos/Personal/Post', 'post_analogue')
 # generateJson('Photos/Personal/summer', 'summer2014')
-generateJson('Frontpage', 'test', 'jsonGalleries')
+# generateJson('Frontpage', 'test', 'jsonGalleries')
+generateJson('Gallery/Analogue', 'analogue', 'jsonGalleries')
+generateJson('Gallery/Nature', 'nature', 'jsonGalleries')

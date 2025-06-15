@@ -15,7 +15,7 @@ fetch('sidebar.html')
 
     // Automatisk visning av dropdown ved bestemte sider
     const currentPage = window.location.pathname.split("/").pop();
-    const personalPages = ["personal.html", "california.html", "analogue_work.html", "summer.html"];
+    const personalPages = ["personal_analogue.html", "personal_nature.html", "analogue_work.html", "summer.html"];
     if (personalPages.includes(currentPage)) {
       const dropdown = document.querySelector('.dropdown-content');
       if (dropdown) dropdown.classList.add('show');
