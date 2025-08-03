@@ -5,6 +5,7 @@ html, body {
   padding: 0;
   font-family: 'EB Garamond', serif;
   background-color: #e6dece;
+  /* background-color: #FFEFC2; */
   color: #000000;
 }
 
@@ -22,6 +23,7 @@ html, body {
   left: 0;
   width: 100%;
   background-color: #e6dece;
+  /* background-color: #FFEFC2; */
   padding: 1rem 2rem;
   /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
   z-index: 1000;
@@ -50,6 +52,7 @@ body {
   padding: 2rem;
   gap: 2rem;
   background-color: #e6dece;
+  /* background-color: #FFEFC2; */
   position: fixed;
   top: 3cm;                     /* Flyttet ned 3cm */
   left: 0;
@@ -258,6 +261,7 @@ body {
   width: 100%;
   height: 100%;
   background: #e6dece;
+  /* background-color: #FFEFC2; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -299,4 +303,69 @@ body {
 
 .content.hidden {
   display: none;
+}
+
+#substack-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.substack-article {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 2rem;
+}
+
+.substack-article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.substack-article .date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.substack-article .content {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #222;
+}
+
+.substack-article .content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+
+.substack-article .read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #444;
+  text-decoration: underline;
+}
+
+.substack-article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 6px;
+}
+
+.substack-article .excerpt {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'EB Garamond', serif;
+  margin-top: 1rem;
+  color: #333;
 }
