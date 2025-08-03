@@ -1,48 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const feedUrl = "https://api.allorigins.win/raw?url=https://lovisestudios.substack.com/feed";
-    fetch(feedUrl)
-      .then(res => res.json())
-      .then(data => { /* … som før … */ })
-      .catch(err => console.error("Fetch-error:", err));
-  });
-  
+const rssUrl = 'https://lovisestudios.substack.com/feed';
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const feedUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://lovisestudios.substack.com/feed";
-  
-//     fetch(feedUrl)
-//       .then(response => response.json())
-//       .then(data => {
-//         const container = document.getElementById("substack-posts");
-//         if (!container) return;
-  
-//         data.items.slice(0, 5).forEach(post => {
-//           const article = document.createElement("article");
-//           article.classList.add("substack-article");
-  
-//           // Ekstraher første bilde
-//           const imgMatch = post.description.match(/<img[^>]+src="([^">]+)"/);
-//           const imageUrl = imgMatch ? imgMatch[1] : null;
-  
-//           // Ekstraher ren tekst fra beskrivelsen
-//           const tempDiv = document.createElement("div");
-//           tempDiv.innerHTML = post.description;
-//           const textContent = tempDiv.textContent || tempDiv.innerText || "";
-//           const shortText = textContent.slice(0, 250) + "...";
-  
-//           article.innerHTML = `
-//             ${imageUrl ? `<img src="${imageUrl}" alt="Substack image">` : ""}
-//             <h2>${post.title}</h2>
-//             <p class="date">${new Date(post.pubDate).toLocaleDateString()}</p>
-//             <p class="excerpt">${shortText}</p>
-//             <a class="read-more" href="${post.link}" target="_blank">Les mer på Substack</a>
-//           `;
-  
-//           container.appendChild(article);
-//         });
-//       })
-//       .catch(err => {
-//         console.error("Kunne ikke hente Substack-feed:", err);
-//       });
-//   });
-  
+fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`)
+  .then(res => res.json())
+  .then(data => {
+    const postsContainer = document.getElementById('substack-posts');
+    data.items.forEach(item => {
+      const post = document.createElement('div');
+      post.classList.add('substack-post');
+
+      // Hent første bilde fra innholdet
+      const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
+      const imageUrl = imgMatch ? imgMatch[1] : null;
+
+      post.innerHTML = `
+        ${imageUrl ? `<img src="${imageUrl}" alt="Substack image" class="substack-image">` : ''}
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        <a href="${item.link}" target="_blank" class="read-more-button">Les mer</a>
+      `;
+
+      postsContainer.appendChild(post);
+    });
+  })
+  .catch(error => {
+    console.error('Feil ved henting av RSS:', error);
+  });

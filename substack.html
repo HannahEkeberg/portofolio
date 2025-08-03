@@ -17,46 +17,37 @@
   <header class="main-header">
     <h1>HANNAH LOVISE</h1>
   </header>
+
   <div class="container">
     <aside class="sidebar">
-        
-        <div id="sidebar-nav">
-          <script>
-              fetch('sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                  document.getElementById('sidebar-nav').innerHTML = html;
-                });
-          </script> 
-        </div>
+      <div id="sidebar-nav"></div>
+      <div class="sidebar-footer">
+        <p>© 2025 Hannah Lovise</p>
+      </div>
+    </aside>
 
-        <div class="content">
-            <main>
-                <section id="substack-feed">
-                  <h2>Nyeste fra nyhetsbrevet</h2>
-                  <div id="substack-posts"></div>
-                </section>
-              </main>
-              <script src="substack.js"></script>
-          </div>
-
-        <div class="sidebar-footer">
-          <p>© 2025 Hannah Lovise</p>
-        </div>
-      </aside> 
-      
-
-      <div class="content">
-          <main>
-        </main>
-    </div>
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox hidden">
-        <span class="close" id="closeBtn">&times;</span>
-    </div>
+    <div class="content">
+      <main>
+        <section id="substack-feed">
+          <h2>Nyeste fra nyhetsbrevet</h2>
+          <div id="substack-posts"></div>
+        </section>
+      </main>
     </div>
   </div>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden">
+    <span class="close" id="closeBtn">&times;</span>
+  </div>
+
+  <script>
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('sidebar-nav').innerHTML = html;
+      });
+  </script>
   <script src="substack.js"></script>
   <script src="lightbox.js"></script>
   <script src="dropdownmenu.js"></script>
