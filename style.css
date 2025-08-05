@@ -6,7 +6,8 @@ html, body {
   font-family: 'EB Garamond', serif;
   background-color: #e6dece;
   color: #000000;
-}
+  overflow-x: hidden;
+  }
 
 /* === Hovedlayout === */
 .container {
@@ -357,18 +358,20 @@ body {
   color: #222;
   text-align: right;
 }
-
-/* Bilder */
-.substack-article img,
-.substack-article .content img {
-  max-width: 100%;
-  max-height: 350px;
-  height: auto;
+/* .substack-article img,
+.substack-article .content img,
+.substack-article img[style],
+.substack-article .content img[style] {
+  width: 200px !important;
+  height: auto !important;
+  max-width: unset !important;
   display: block;
   margin: 1rem auto;
   border-radius: 6px;
   object-fit: contain;
-}
+} */
+
+
 
 /* Les mer-knapp */
 .substack-article .read-more {
