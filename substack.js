@@ -1,22 +1,38 @@
+
 const rssUrl = 'https://lovisestudios.substack.com/feed';
 
 fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`)
   .then(res => res.json())
   .then(data => {
     const postsContainer = document.getElementById('substack-posts');
+    if (!data || !data.items) {
+      console.error('Ingen innlegg funnet i RSS-feed.');
+      return;
+    }
+
     data.items.forEach(item => {
       const post = document.createElement('div');
-      post.classList.add('substack-post');
+      post.classList.add('substack-article');
 
-      // Hent første bilde fra innholdet
-      const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
+      // Fallback hvis content mangler
+      const rawContent = item.content || item.description || "";
+      const imgMatch = rawContent.match(/<img[^>]+src="([^">]+)"/);
       const imageUrl = imgMatch ? imgMatch[1] : null;
 
+      const date = new Date(item.pubDate).toLocaleDateString('no-NO', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      // Sett HTML-innhold
       post.innerHTML = `
+        <h2>${item.title}</h2>
+        <p class="date">${date}</p>
         ${imageUrl ? `<img src="${imageUrl}" alt="Substack image" class="substack-image">` : ''}
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-        <a href="${item.link}" target="_blank" class="read-more-button">Les mer</a>
+        
+        <p class="excerpt">${item.description}</p>
+        <a href="${item.link}" target="_blank" class="read-more">Read more</a>
       `;
 
       postsContainer.appendChild(post);
