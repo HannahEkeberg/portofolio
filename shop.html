@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HANNAH LOVISE</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Photos/Icon/iconphoto.png" type="image/png" />
+
+</head>
+
+<body>
+  <button class="hamburger" onclick="toggleSidebar()">MENU</button>
+
+  <header class="main-header">
+    <h1>HANNAH LOVISE</h1>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+        
+        <div id="sidebar-nav">
+          <script>
+              fetch('sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById('sidebar-nav').innerHTML = html;
+                });
+          </script> 
+        </div>
+        <div class="sidebar-footer">
+          <p>© 2025 Hannah Lovise</p>
+        </div>
+      </aside> 
+      
+
+    <div class="content">
+      <main>
+        <h1>COMING LATER 2025</h1>
+        <p> Buy high quality prints. Sudoku book. Cooking e-books. Cooking book.
+        </p>
+      </main>
+    </div>
+  </div>
+  <script src="dropdownmenu.js"></script>
+</body>
+</html>

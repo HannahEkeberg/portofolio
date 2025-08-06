@@ -30,9 +30,9 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)
         <h2>${item.title}</h2>
         <p class="date">${date}</p>
         ${imageUrl ? `<img src="${imageUrl}" alt="Substack image" class="substack-image">` : ''}
-        
+
         <p class="excerpt">${item.description}</p>
-        <a href="${item.link}" target="_blank" class="read-more">Read more</a>
+        <a href="${item.link}" target="_blank" class="read-more">Original substack post</a>
       `;
 
       postsContainer.appendChild(post);
