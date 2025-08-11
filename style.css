@@ -391,3 +391,43 @@ body {
 }
 
 
+.bottom-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #ccc;
+  padding: 0.8rem;
+  text-align: center;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.bottom-fixed p {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+}
+
+.bottom-fixed a {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.bottom-fixed a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .bottom-fixed {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .bottom-fixed a {
+    font-size: 0.85rem;
+  }
+}
