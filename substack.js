@@ -17,6 +17,7 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)
       const imgMatch = rawContent.match(/<img[^>]+src="([^">]+)"/);
       const imageUrl = imgMatch ? imgMatch[1] : null;
 
+
       // Fjern første <img> fra innholdet
       const cleanedContent = rawContent.replace(/<img[^>]+src="([^">]+)"[^>]*>/i, '');
 
@@ -32,9 +33,9 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)
         ${imageUrl ? `<img src="${imageUrl}" alt="Substack image" class="substack-image">` : ''}
         <p class="excerpt">${item.description}</p>
         <div class="full-content" style="display: none;">${cleanedContent}</div>
-        <button class="toggle-button">Vis mer</button>
-        <a href="${item.link}" target="_blank" class="read-more">Original Substack-post</a>
-      `;
+        <button class="toggle-button">Show more</button>
+        `;
+        // <a href="${item.link}" target="_blank" class="read-more">Original Substack-post</a>  // MOVE ONE UP IF USING AGAIN.... 
 
       const toggleButton = post.querySelector('.toggle-button');
       const fullContent = post.querySelector('.full-content');
@@ -42,7 +43,7 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)
       toggleButton.addEventListener('click', () => {
         const isVisible = fullContent.style.display === 'block';
         fullContent.style.display = isVisible ? 'none' : 'block';
-        toggleButton.textContent = isVisible ? 'Vis mer' : 'Vis mindre';
+        toggleButton.textContent = isVisible ? 'show more' : 'show less';
       });
 
       postsContainer.appendChild(post);

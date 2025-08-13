@@ -114,7 +114,9 @@ body {
 }
 
 .sidebar-footer {
-  margin-top: auto;
+  /* margin-top: auto; */
+  position: absolute; 
+  bottom: 80px;
   font-size: 0.8rem;
   color: #aaa;
   text-align: left;
@@ -304,6 +306,7 @@ body {
   justify-content: center;
   padding: 2rem 1rem;
   width: 100%;
+  min-width: 50%;
   box-sizing: border-box;
 }
 
@@ -384,50 +387,74 @@ body {
 .substack-article .read-more {
   display: inline-block;
   margin-top: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'EB Garamond', serif;
   font-size: 0.9rem;
   color: #444;
   text-decoration: underline;
 }
 
+.toggle-button {
+  background: none;
+  border: none;
+  color: #666;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-family: 'EB Garamond', serif;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.toggle-button:hover {
+  color: #444;
+   /* litt mørkere grå på hover */
+}
+
+.substack-article a img {
+  pointer-events: none; /* gjør at bildet ikke reagerer som lenke */
+}
+
+.substack-article a {
+  text-decoration: none;
+  color: #e6dece;;
+  /* color: inherit; */
+  /* hvis ikonet er en ::before eller ::after, skjul det */
+}
+
+/* .substack-article a > svg, 
+.substack-article a > i {
+  display: none !important;
+} */
 
 .bottom-fixed {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: white;
-  border-top: 1px solid #ccc;
-  padding: 0.8rem;
-  text-align: center;
-  z-index: 999;
-  box-sizing: border-box;
-}
-
-.bottom-fixed p {
-  margin: 0 0 0.3rem;
-  font-size: 1rem;
+  background-color: #e6dece;
+  border-top: 1px solid #ddd;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  z-index: 9999; /* Sørger for at den ligger øverst */
 }
 
 .bottom-fixed a {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #333;
-  text-decoration: none;
-  word-break: break-word;
-}
+    color: inherit;          /* Beholder samme farge som teksten rundt */
+    /* text-decoration: none;   Fjerner understrek */
+  }
+  
+.bottom-fixed a:visited {
+    color: inherit;          /* Fjerner fargeendring på besøkte linker */
+  }
+  
+  .bottom-fixed a:active {
+    color: inherit;          /* Fjerner fargeendring når linken trykkes */
+    text-decoration: none;   /* Fjerner understrek ved trykk */
+  }
 
-.bottom-fixed a:hover {
-  text-decoration: underline;
-}
-
+/* Gjør den mobilvennlig */
 @media screen and (max-width: 600px) {
   .bottom-fixed {
     padding: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .bottom-fixed a {
-    font-size: 0.85rem;
   }
 }
